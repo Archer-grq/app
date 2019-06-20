@@ -60,7 +60,7 @@
         <ul data-role="listview" data-filter="true" data-insert="true" data-input="#myFilter" data-icon="false">
             <li data-role="list-divider">热门店铺</li>
             <li>
-                <a href="#stroe" style="padding: 0;margin: 0">
+                <a href="#stroe" style="padding: 0;margin: 0" data-transition="slide">
                     <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="myTable">
                         <tr>
                             <td style="width: 30%">
@@ -77,7 +77,7 @@
                 </a>
             </li>
             <li>
-                <a href="#fish" style="padding: 0;margin: 0">
+                <a href="#fish" style="padding: 0;margin: 0" data-transition="slide">
                     <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="myTable">
                         <tr>
                             <td style="width: 30%">
@@ -100,9 +100,9 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="#home"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
-                <li><a href="#member"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
-                <li><a href="#order"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
-                <li><a href="#person"><span class="iconfont icon-wo"></span><br>我的</a></li>
+                <li><a href="#member" data-transition="slide"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
+                <li><a href="#order" data-transition="slide"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
+                <li><a href="#person" data-transition="slide"><span class="iconfont icon-wo"></span><br>我的</a></li>
             </ul>
         </div>
     </div>
@@ -122,10 +122,10 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="#home"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
+                <li><a href="#home" data-transition="slide" data-direction="reverse"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
                 <li><a href="#member"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
-                <li><a href="#order"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
-                <li><a href="#person"><span class="iconfont icon-wo"></span><br>我的</a></li>
+                <li><a href="#order" data-transition="slide"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
+                <li><a href="#person" data-transition="slide"><span class="iconfont icon-wo"></span><br>我的</a></li>
             </ul>
         </div>
     </div>
@@ -161,10 +161,10 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="#home"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
-                <li><a href="#member"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
-                <li><a href="#order"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
-                <li><a href="#person"><span class="iconfont icon-wo"></span><br>我的</a></li>
+                <li><a href="#home" data-transition="slide" data-direction="reverse"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
+                <li><a href="#member" data-transition="slide" data-direction="reverse"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
+                <li><a href="#order" ><span class="iconfont icon-dingdan"></span><br>订单</a></li>
+                <li><a href="#person" data-transition="slide"><span class="iconfont icon-wo"></span><br>我的</a></li>
             </ul>
         </div>
     </div>
@@ -222,9 +222,9 @@
     <div data-role="footer" data-position="fixed" >
         <div data-role="navbar">
             <ul>
-                <li><a href="#home"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
-                <li><a href="#member"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
-                <li><a href="#order"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
+                <li><a href="#home" data-transition="slide" data-direction="reverse"><span class="iconfont icon-zhuye"></span><br>首页</a></li>
+                <li><a href="#member" data-transition="slide" data-direction="reverse"><span class="iconfont icon-huiyuan"></span><br>会员</a></li>
+                <li><a href="#order" data-transition="slide" data-direction="reverse"><span class="iconfont icon-dingdan"></span><br>订单</a></li>
                 <li><a href="#person"><span class="iconfont icon-wo"></span><br>我的</a></li>
             </ul>
         </div>
@@ -235,7 +235,7 @@
 
 <div data-role="page" id="stroe">
     <div data-role="header" style="height: 50px;background-color: #eeeeee">
-        <a href="./index.html" class="iconfont icon-zuo noborder" ></a>
+        <a href="#home" class="iconfont icon-zuo noborder" data-transition="slide" data-direction="reverse"></a>
         <a class="iconfont icon-shoucang noborder"></a>
         <h3>霸王海鲜</h3>
     </div>
@@ -321,7 +321,7 @@
 
 <div data-role="page" id="fish">
     <div data-role="header" style="height: 50px;background-color: #eeeeee">
-        <a href="./index.html" class="iconfont icon-zuo noborder" ></a>
+        <a href="#home" class="iconfont icon-zuo noborder" data-transition="slide" data-direction="reverse" ></a>
         <a class="iconfont icon-shoucang noborder"></a>
         <h3>恋湾鱼店</h3>
     </div>

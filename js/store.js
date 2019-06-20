@@ -12,6 +12,7 @@ $(function () {
         var num=parseInt($("#dzxNum").val())+1;
         $("#dzxNum").val(num)
         shopupdate(num,"bw","b","",199,false)
+        getnum("bw","b")
     })
 
     //bw.b减少商品
@@ -21,7 +22,7 @@ $(function () {
             num-=1;
         }
         $("#dzxNum").val(num)
-        shopupdate(num,"bw","a","",188,false)
+        shopupdate(num,"bw","b","",199,false)
     })
 
     //bw.a 增加商品
@@ -132,9 +133,11 @@ $(document).on("pagecreate","#order",function(){
 });
 $(document).on("pagecreate","#stroe",function(){
     showcar()
+    getnum("bw","b")
 });
 $(document).on("pagecreate","#fish",function(){
     showcar()
+    getnum("layd","df")
 });
 /**
  * 更新购物车信息
@@ -151,30 +154,84 @@ function shopupdate(num,shopname,productname,taste,money,type) {
         localStorage.setItem("shopcar",shopcar)
     }
     var shopcarInfo=JSON.parse(localStorage.getItem("shopcar"))
-    if(shopcarInfo.length==0){
-        var shop1={"shop":shopname,"product":productname,"taste":taste,"num":num,"money":money}
-        shopcarInfo.push(shop1)
-    }else{
-        var flag=true
-        for(var i=0;i<shopcarInfo.length;i++){
-            if(shopcarInfo[i].shop==shopname&&shopcarInfo[i].product==productname&&shopcarInfo[i].taste==taste){
-                if(type==true){
-                    shopcarInfo[i].num+=1
-                    num=1//当时增加是赋值为 1；（只能一个一个增加）
-                }else {
-                    shopcarInfo[i].num=num
+    if(num==0){
+        if(shopcarInfo.length==0){
+        }else{
+            for(var j=0;j<shopcarInfo.length;j++){
+                if(shopcarInfo[j].shop==shopname&&shopcarInfo[j].product==productname&&shopcarInfo[j].taste==taste){
+                    shopcarInfo.splice(j,1)
+                    break;
                 }
-                flag=false
-                break;
+            }
+
+        }
+        var shopcarstr1=JSON.stringify(shopcarInfo)
+        localStorage.setItem("shopcar",shopcarstr1)
+        console.log(JSON.parse(localStorage.getItem("shopcar")))
+    }else{
+        if(shopcarInfo.length==0){
+            var shop1={"shop":shopname,"product":productname,"taste":taste,"num":num,"money":money}
+            shopcarInfo.push(shop1)
+        }else{
+            var flag=true
+            for(var i=0;i<shopcarInfo.length;i++){
+                if(shopcarInfo[i].shop==shopname&&shopcarInfo[i].product==productname&&shopcarInfo[i].taste==taste){
+                    if(type==true){
+                        shopcarInfo[i].num+=1
+                        num=1//当时增加是赋值为 1；（只能一个一个增加）
+                    }else {
+                        shopcarInfo[i].num=num
+                    }
+                    flag=false
+                    break;
+                }
+            }
+            if(flag){
+                var shop2={"shop":shopname,"product":productname,"taste":taste,"num":num,"money":money}
+                shopcarInfo.push(shop2)
             }
         }
-        if(flag){
-            var shop2={"shop":shopname,"product":productname,"taste":taste,"num":num,"money":money}
-            shopcarInfo.push(shop2)
+        var shopcarstr=JSON.stringify(shopcarInfo)
+        localStorage.setItem("shopcar",shopcarstr)
+        console.log(JSON.parse(localStorage.getItem("shopcar")))
+    }
+
+    showcar()
+}
+function getnum(shopname, productname) {
+    if(localStorage.getItem("shopcar")==undefined||localStorage.getItem("shopcar")==null){
+        var shopcar="[]"
+        localStorage.setItem("shopcar",shopcar)
+    }
+    var shopcarInfo=JSON.parse(localStorage.getItem("shopcar"))
+    if(shopcarInfo.length==0){
+        if(shopname=="layd"&&productname=="df"){
+            $("#dzxNum").val(0)
+        }
+        if(shopname=="bw"&&productname=="b"){
+            $("#fishNum").val(0)
         }
     }
-    var shopcarstr=JSON.stringify(shopcarInfo)
-    localStorage.setItem("shopcar",shopcarstr)
-    console.log(JSON.parse(localStorage.getItem("shopcar")))
-    showcar()
+    var flag=true
+    for(var i=0;i<shopcarInfo.length;i++){
+        if(shopcarInfo[i].shop==shopname&&shopcarInfo[i].product==productname){
+            flag=false
+            var num =shopcarInfo[i].num
+            if(shopname=="layd"&&productname=="df"){
+                $("#dzxNum").val(num)
+            }
+            if(shopname=="bw"&&productname=="b"){
+                $("#fishNum").val(num)
+            }
+            break;
+        }
+    }
+    if(flag){
+        if(shopname=="layd"&&productname=="df"){
+            $("#dzxNum").val(0)
+        }
+        if(shopname=="bw"&&productname=="b"){
+            $("#fishNum").val(0)
+        }
+    }
 }
