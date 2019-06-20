@@ -21,7 +21,7 @@ $(function () {
             num-=1;
         }
         $("#dzxNum").val(num)
-        shopupdate(1,"bw","a","",188,true)
+        shopupdate(num,"bw","a","",188,false)
     })
 
     //bw.a 增加商品
@@ -62,6 +62,7 @@ $(function () {
         if(num>0){
             num-=1;
         }
+        $("#fishNum").val(num)
         shopupdate(num,"layd",'df',"",99,false)
     })
 })
