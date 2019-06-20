@@ -1,0 +1,65 @@
+a{
+	text-decoration: none;
+}
+body{
+    overflow-x: hidden;
+}
+.sInfo{
+	font-size: 12px;
+	color: #666666;
+}
+.stroeName{
+	font-size: 15px;
+}
+.star{
+
+	font-size: 12px;
+	color: darkorange;
+}
+.psTime{
+	float: right;
+	font-size: 12px;
+	color: #666666;
+}
+.person-meun{
+    text-align: center;
+}
+.person-meun>div>span{
+    font-size: 25px;
+}
+.person-meun>div>span>span{
+	font-size: 15px;
+}
+.noborder{
+	margin: 0!important;
+	padding: 8px 0 !important;
+	font-size: 20px !important;
+	border: 0 !important;
+	background-color: #eeeeee !important;
+	box-shadow: none !important;
+}
+.popbtn{
+	float: right;
+	margin: 0px	 !important;
+	padding: 5px 10px !important;
+	border-radius: 20px;
+	font-size: 14px !important;
+	background-color: darkorange !important;
+	color: black !important;
+	text-shadow: none !important;
+}
+.chbtn{
+	float: right;
+	margin: 3px !important;
+	padding: 3px 8px!important;
+	border-radius: 20px;
+	font-size: 15px !important;
+	background-color: darkorange !important;
+	color: black !important;
+}
+.money{
+	margin-left: 30px;
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
